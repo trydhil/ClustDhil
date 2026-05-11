@@ -1,6 +1,11 @@
 /* sfcm_dash/assets/style.css */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
 
+/* ─────────────────────────────────────────
+   BASE
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
     background-color: #F0F4F8;
     font-family: 'Space Grotesk', sans-serif;
@@ -9,6 +14,9 @@ body {
     padding: 0;
 }
 
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
 .neo-header {
     background-color: #FFDE59;
     border-bottom: 4px solid #000;
@@ -20,68 +28,371 @@ body {
 
 .neo-title {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 28px;
     margin: 0;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
+/* ─────────────────────────────────────────
+   HERO SPLIT LAYOUT
+───────────────────────────────────────── */
+.neo-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0px #000;
+    margin-bottom: 28px;
+    background: #fff;
+}
+
+.neo-hero-left {
+    background: #FFDE59;
+    border-right: 4px solid #000;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.neo-hero-right {
+    background: #fff;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+}
+
+.hero-h1 {
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.hero-h1 mark {
+    background: #000;
+    color: #FFDE59;
+    padding: 0 4px;
+}
+
+.hero-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    font-weight: 400;
+    opacity: 0.75;
+    max-width: 340px;
+    margin: 0;
+}
+
+.hero-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.hero-tag {
+    border: 2px solid #000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    background: #fff;
+    letter-spacing: 0.04em;
+}
+
+/* Stat grid inside hero-right */
+.hero-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 3px solid #000;
+}
+
+.hero-stat-cell {
+    padding: 14px 16px;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    background: #F0F4F8;
+}
+
+.hero-stat-cell:nth-child(even) { border-right: none; }
+.hero-stat-cell:nth-child(n+3)  { border-bottom: none; }
+.hero-stat-cell.yellow           { background: #FFDE59; }
+.hero-stat-cell.pink             { background: #FF90E8; }
+.hero-stat-cell.green            { background: #38E54D; }
+.hero-stat-cell.white            { background: #fff; }
+
+.stat-val {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-lbl {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 4px;
+    opacity: 0.55;
+}
+
+/* ─────────────────────────────────────────
+   CONTAINER
+───────────────────────────────────────── */
 .neo-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* ─────────────────────────────────────────
+   CARDS
+───────────────────────────────────────── */
 .neo-card {
     background-color: #FFF;
     border: 4px solid #000;
-    box-shadow: 8px 8px 0px #000;
+    box-shadow: 6px 6px 0px #000;
     border-radius: 0px;
-    padding: 24px;
-    margin-bottom: 30px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
 }
 
-.neo-card-pink { background-color: #FF90E8; }
-.neo-card-blue { background-color: #3B82F6; color: white; }
+.neo-card-yellow { background-color: #FFDE59; }
+.neo-card-pink   { background-color: #FF90E8; }
+.neo-card-green  { background-color: #d4f5c4; }
+.neo-card-blue   { background-color: #3B82F6; color: white; }
 
-.neo-button {
+/* Card inner title bar */
+.card-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    border-bottom: 3px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+/* ─────────────────────────────────────────
+   FORM ELEMENTS
+───────────────────────────────────────── */
+.neo-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.neo-label-hint {
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.55;
+}
+
+/* Input group: label + control stacked */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 14px;
+}
+
+.input-group:last-of-type { margin-bottom: 0; }
+
+/* Native Dash dcc.Input override */
+.neo-input {
+    width: 100%;
+    border: 3px solid #000;
+    padding: 9px 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    outline: none;
+    transition: box-shadow 0.1s;
+}
+
+.neo-input:focus {
+    box-shadow: 4px 4px 0 #000;
+}
+
+/* Upload zone */
+.neo-upload {
+    width: 100%;
+    height: 64px;
+    line-height: normal;
+    border: 3px dashed #000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: background 0.15s;
+}
+
+.neo-upload:hover { background: #FFDE59; }
+.neo-upload a     { text-decoration: underline; color: inherit; }
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.neo-btn, .neo-button {
     background-color: #38E54D;
     color: #000;
     border: 3px solid #000;
     box-shadow: 4px 4px 0px #000;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 12px 24px;
+    padding: 11px 20px;
     cursor: pointer;
     transition: all 0.1s ease;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
     width: 100%;
-    margin-top: 10px;
+    margin-top: auto;
+    outline: none;
 }
 
-.neo-button:active {
+.neo-btn:hover, .neo-button:hover {
+    box-shadow: 6px 6px 0px #000;
+    transform: translate(-2px, -2px);
+}
+
+.neo-btn:active, .neo-button:active {
     transform: translate(4px, 4px);
     box-shadow: 0px 0px 0px #000;
 }
 
-.neo-label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    display: block;
+/* ─────────────────────────────────────────
+   METRIC / SUMMARY BOXES
+───────────────────────────────────────── */
+.metric-box {
+    background: #fff;
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 140px;
+    min-width: 140px;
 }
 
-.neo-input {
-    width: 100%;
-    border: 3px solid #000;
-    padding: 10px;
-    font-family: inherit;
-    font-size: 14px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+.metric-val {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
 }
 
-/* Flexbox Layouts */
-.row { display: flex; flex-wrap: wrap; gap: 20px; }
+/* ─────────────────────────────────────────
+   FLEXBOX GRID
+───────────────────────────────────────── */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.col   { flex: 1 1 0; min-width: 260px; }
 .col-3 { flex: 1 1 25%; min-width: 250px; }
-.col-9 { flex: 3 1 70%; min-width: 300px; }
 .col-6 { flex: 1 1 45%; min-width: 300px; }
+.col-9 { flex: 3 1 70%; min-width: 300px; }
+
+/* ─────────────────────────────────────────
+   RESULTS LAYOUT
+───────────────────────────────────────── */
+.results-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+/* ─────────────────────────────────────────
+   CHART WRAPPERS
+───────────────────────────────────────── */
+.chart-wrap {
+    border: 3px solid #000;
+    overflow: hidden;
+}
+
+/* ─────────────────────────────────────────
+   PILL / BADGE
+───────────────────────────────────────── */
+.neo-pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 9px;
+    border: 2px solid #000;
+}
+
+.neo-pill-pink  { background: #FF90E8; }
+.neo-pill-green { background: #38E54D; }
+.neo-pill-yellow{ background: #FFDE59; }
+
+/* ─────────────────────────────────────────
+   DATA TABLES (Dash DataTable overrides)
+───────────────────────────────────────── */
+.dash-spreadsheet-container .dash-spreadsheet.dash-freeze-top,
+.dash-spreadsheet-container .dash-spreadsheet:not(.dash-freeze-left):not(.dash-freeze-top) {
+    border: 2px solid #000 !important;
+}
+
+/* ─────────────────────────────────────────
+   ERROR BANNER
+───────────────────────────────────────── */
+.neo-error {
+    background: #000;
+    color: #FF90E8;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border: 3px solid #FF90E8;
+    margin-bottom: 20px;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .neo-hero          { grid-template-columns: 1fr; }
+    .neo-hero-left     { border-right: none; border-bottom: 4px solid #000; }
+    .results-row       { grid-template-columns: 1fr; }
+    .hero-stat-grid    { grid-template-columns: 1fr 1fr; }
+    .neo-title         { font-size: 20px; }
+}
